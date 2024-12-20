@@ -7,11 +7,11 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx"
 import { twMerge } from "tailwind-merge"
 import { FaUserAlt } from "react-icons/fa"
 
-import useAuthModal from "@/hooks/useModal"
+import useAuthModal from "@/hooks/useAuthModal"
 import { useUser } from "@/hooks/useUser"
 
 import Button from "./Button"
-import AuthModal from '@/components/AuthModal';
+// import AuthModal from '@/components/AuthModal';
 import { useSupabaseClient } from "@supabase/auth-helpers-react"
 import toast from "react-hot-toast"
 
@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({
   children,
   className
 }) => {
-  const AuthModal = useAuthModal()
+  const authModal = useAuthModal()
   const router = useRouter()
 
   const supabaseClient = useSupabaseClient()
@@ -97,14 +97,14 @@ const Header: React.FC<HeaderProps> = ({
             <>
               <div>
                 <Button
-                  onClick={AuthModal.onOpen}
+                  onClick={authModal.onOpen}
                   className="bg-transparent text-neutral-300 font-medium">
                   Sign Up
                 </Button>
               </div>
               <div>
                 <Button
-                  onClick={AuthModal.onOpen}
+                  onClick={authModal.onOpen}
                   className="bg-white px-6 py-2">
                   Log in
                 </Button>
